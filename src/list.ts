@@ -1,12 +1,12 @@
 import handler from "./util/handler";
 import dynamoDb from "./util/dynamodb";
 
-export const main = handler(async(event) => {
+export const main = handler(async(evt) => {
 	const params = {
 		TableName: process.env.TABLE_NAME,
 		KeyConditionExpression: "userId = :userId",
 		ExpressionAttributeValues: {
-			":userId": event.requestContext.authorizer.iam.cognitoIdentity.identityId,
+			":userId": evt.requestContext.authorizer.iam.cognitoIdentity.identityId,
 		}
 	}
 
