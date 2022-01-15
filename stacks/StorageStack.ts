@@ -17,7 +17,18 @@ export default class StorageStack extends sst.Stack {
 			primaryIndex: {partitionKey: "userId", sortKey: "noteId"},
 		});
 
-		this.bucket = new sst.Bucket(this, "Uploads");
+		this.bucket = new sst.Bucket(this, "Uploads", {
+			s3Bucket: {
+				cors: [
+					{
+						maxAge: 3000,
+						allowedOrigins: ["*"],
+						allowedHeaders: ["*"],
+						allowedMethods: ["GET", "PUT", "POST", "DELETE", "HEAD"],
+					}
+				]
+			}
+		});
 	}
 	
 	

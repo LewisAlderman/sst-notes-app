@@ -1,11 +1,11 @@
 import {APIGatewayProxyHandler} from "aws-lambda";
 
 export default function (lambda) {
-	const handler: APIGatewayProxyHandler = async (event, ctx) => {
+	const handler: APIGatewayProxyHandler = async (evt, ctx) => {
 		let body, statusCode;
 
 		try {
-			body = await lambda(event, ctx);
+			body = await lambda(evt, ctx);
 			statusCode = 200
 		} catch (err) {
 			console.error(err)
@@ -13,7 +13,10 @@ export default function (lambda) {
 			statusCode = 500
 		}
 
-		return {statusCode, body: JSON.stringify(body)}
+		return {statusCode, body: JSON.stringify(body), headers: {
+			"Access-Control-Allow-Origin": "*",
+			"Access-Control-Allow-Credentials": true
+		}}
 	}
 
 	return handler;
