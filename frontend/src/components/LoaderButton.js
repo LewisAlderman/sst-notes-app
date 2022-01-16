@@ -1,0 +1,21 @@
+import React from "react";
+import Button from "react-bootstrap/Button";
+import { Spinner } from "./Spinner";
+
+export default function LoaderButton({
+  isLoading,
+  className = "",
+  disabled = false,
+  ...props
+}) {
+  return (
+    <Button
+      disabled={disabled || isLoading}
+      className={`LoaderButton ${className}`}
+      {...props}
+    >
+      {isLoading && <Spinner />}
+      {props.children}
+    </Button>
+  );
+}
