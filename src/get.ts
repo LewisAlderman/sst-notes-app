@@ -4,7 +4,10 @@ import dynamoDb from "./util/dynamodb";
 export const main = handler(async(evt) => {
 	const params = {
 		TableName: process.env.TABLE_NAME,
-		Key: { userId: evt.requestContext.authorizer.iam.cognitoIdentity.identityId, noteId: evt.pathParameters.id },
+		Key: { 
+			userId: evt.requestContext.authorizer.iam.cognitoIdentity.identityId, 
+			// noteId: evt.pathParameters.id
+		},
 	}
 
 	const result = await dynamoDb.get(params);
