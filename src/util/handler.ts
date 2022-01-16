@@ -1,15 +1,19 @@
 import {APIGatewayProxyHandler} from "aws-lambda";
+import * as debug from "./debug";
 
 export default function (lambda) {
-	const handler: APIGatewayProxyHandler = async (evt, ctx) => {
+	const handler: APIGatewayProxyHandler = async (event, context) => {
 		let body, statusCode;
+		
+		debug.init(event);
 
 		try {
-			body = await lambda(evt, ctx);
+			body = await lambda(event, context);
 			statusCode = 200
 		} catch (err) {
-			console.error(err)
-			body = {error: e.message}
+			debug.flush(err);
+
+			body = {error: err.message}
 			statusCode = 500
 		}
 

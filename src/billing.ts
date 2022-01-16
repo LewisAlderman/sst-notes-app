@@ -1,5 +1,5 @@
-import Stripe from 'stripe';
 import handler from './util/handler';
+import Stripe from 'stripe';
 import {calculateCost} from './util/cost';
 
 export const main = handler(async (event) => {

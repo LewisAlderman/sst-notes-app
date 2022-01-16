@@ -1,5 +1,5 @@
-import * as uuid from "uuid";
 import handler from "./util/handler";
+import * as uuid from "uuid";
 import dynamoDb from "./util/dynamodb";
 import {APIGatewayProxyEventV2} from "aws-lambda";
 
