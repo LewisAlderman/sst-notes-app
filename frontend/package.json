@@ -43,6 +43,10 @@
     ]
   },
   "devDependencies": {
-    "@serverless-stack/static-site-env": "^0.59.1"
+    "@serverless-stack/static-site-env": "^0.59.1",
+    "mini-css-extract-plugin": "2.4.5"
+  },
+  "resolutions": {
+    "mini-css-extract-plugin": "2.4.5"
   }
 }
