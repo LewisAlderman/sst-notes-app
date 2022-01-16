@@ -14,6 +14,7 @@ const config = {
     APP_CLIENT_ID: process.env.REACT_APP_USER_POOL_CLIENT_ID,
     IDENTITY_POOL_ID: process.env.REACT_APP_IDENTITY_POOL_ID,
   },
+  STRIPE_PUBLIC_KEY: "pk_test_8WQQ3vMcR0Be8mtp13vqNq4400BoDjAx4W",
 };
 
 export default config;

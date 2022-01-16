@@ -8,7 +8,7 @@ import BillingForm from "../components/BillingForm";
 import { Elements } from "@stripe/react-stripe-js";
 import "./Settings.css"
 
-const stripePromise = loadStripe(config.STRIPE_KEY);
+const stripePromise = loadStripe(config.STRIPE_PUBLIC_KEY);
 
 export default function Settings() {
   const history = useHistory();
